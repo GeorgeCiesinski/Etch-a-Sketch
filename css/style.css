@@ -8,7 +8,7 @@ body {
   align-items: center; }
 
 /* 
-Grid Controls
+GRID CONTROLS
 */
 #grid-custom-controls {
   display: flex; }
@@ -39,5 +39,9 @@ Grid Controls
   height: 25px;
   background: green;
   cursor: pointer; }
+
+/*
+DRAW CONTROLS
+*/
 
 /*# sourceMappingURL=style.css.map */
