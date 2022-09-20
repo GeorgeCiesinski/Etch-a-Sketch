@@ -7,7 +7,45 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1>Header</h1>
-    <div class="grid"></div>
+        
+    <h1>Pixel Sketchpad</h1>
+    <div>
+        <h4>Grid Controls</h4>
+        <div id="grid-custom-controls">
+            <div>
+                <h5>Horizontal</h5>
+                <input type="range" min="1" max="100" value="50" class="slider">
+                <p>x pixels</p>
+            </div>
+            <div>
+                <h5>Vertical</h5>
+                <input type="range" min="1" max="100" value="50" class="slider">
+                <p>x pixels</p>
+            </div>
+        </div>
+    </div>
+    <div id="grid">
+        <p>Grid will go here</p>
+    </div>
+    <div id="draw-controls">
+        <div>
+            <h4>Colors</h4>
+        </div>
+        <div>
+            <h4>Tool</h4>
+            <form>
+                <input type="radio" name="tool" id="tool-pen" value="pen"> 
+                <label for="tool-pen">Pen</label>
+                <input type="radio" name="tool" id="tool-eraser" value="eraser">
+                <label for="tool-eraser">Eraser</label>
+                <input type="radio" name="tool" id="tool-fill" value="fill">
+                <label for="tool-fill">Fill</label>
+                <input type="radio" name="tool" id="tool-color-picker" value="color-picker">
+                <label for="tool-color-picker">Color Picker</label>
+            </form>
+        </div>
+    </div>
+    
+    <script src="javascript/etchASketch.js"></script>
 </body>
 </html>

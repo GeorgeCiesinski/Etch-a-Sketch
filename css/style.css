@@ -1,0 +1,43 @@
+* {
+  background-color: lightgrey; }
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+
+/* 
+Grid Controls
+*/
+#grid-custom-controls {
+  display: flex; }
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  min-width: 500px;
+  height: 25px;
+  background: grey;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: 0.2s; }
+
+.slider:hover {
+  opacity: 1; }
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: green;
+  cursor: pointer; }
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: green;
+  cursor: pointer; }
+
+/*# sourceMappingURL=style.css.map */
