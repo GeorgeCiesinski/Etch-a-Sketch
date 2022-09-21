@@ -8,33 +8,43 @@
 </head>
 <body>
         
-    <h1>Pixel Sketchpad</h1>
-    <div>
-        <h4>Grid Controls</h4>
-        <div id="grid-custom-controls">
-            <div>
-                <h5>Horizontal</h5>
-                <input type="range" min="1" max="100" value="50" class="slider">
-                <p>x pixels</p>
-            </div>
-            <div>
-                <h5>Vertical</h5>
-                <input type="range" min="1" max="100" value="50" class="slider">
-                <p>x pixels</p>
-            </div>
+    <h1 id="title">PIXEL SKETCHPAD</h1>
+
+    <div class="container">
+
+        <!-- GRID -->
+        <div id="grid">
+            Grid
         </div>
-    </div>
-    <div id="grid">
-        <p>Grid will go here</p>
-    </div>
-    <div id="draw-controls">
+    
+        <!-- TOOLS -->
         <div>
-            <h4>Colors</h4>
-        </div>
-        <div>
-            <h4>Tool</h4>
+            <h4>Grid Size</h4>
+            <div id="grid-custom-controls">
+                <div>
+                    <input type="range" min="1" max="100" value="50" class="slider">
+                    <p>100 x 100 pixels</p>
+                </div>
+            </div>
+            <div id="draw-controls">
+                <div>
+                    <h4>Colors</h4>
+                    <p>Tool Color</p>
+                    <p>Background Color</p>
+                </div>
+                <div>
+                    <h4>Tool</h4>
+                    <button type="button">Draw</button>
+                    <button type="button">Erase</button>
+                    <button type="button">Fill</button>
+                    <button type="button">Eyedrop</button>
+                    <button type="button">Clear</button>
+                </div>
+            </div>
         </div>
     </div>
+
+    
     
     <script src="javascript/etchASketch.js"></script>
 </body>
