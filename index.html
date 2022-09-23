@@ -14,7 +14,6 @@
 
         <!-- GRID -->
         <div id="grid">
-            Grid
         </div>
     
         <!-- TOOLS -->
@@ -22,11 +21,14 @@
             <h4>Grid Size</h4>
             <div id="grid-custom-controls">
                 <div>
-                    <input id="grid-slider" type="range" min="1" max="100" value="50">
+                    <div id="resize-grid-controls">
+                        <input id="grid-slider" type="range" min="1" max="100" value="16">
+                        <button type="button" id="resize">Clear and Resize</button>
+                    </div>
                     <div id="size-preview">
                         <div class="in-line">
                             <p><strong>Current Grid Size:</strong><p>
-                            <p id="current-grid">16 x 16</p>
+                            <p id="current-grid"></p>
                         </div>
                         <div class="in-line">
                             <p><strong id="new-grid-label"></strong><p>
