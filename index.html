@@ -22,30 +22,47 @@
             <h4>Grid Size</h4>
             <div id="grid-custom-controls">
                 <div>
-                    <input type="range" min="1" max="100" value="50" class="slider">
-                    <p>100 x 100 pixels</p>
+                    <input id="grid-slider" type="range" min="1" max="100" value="50">
+                    <div id="size-preview">
+                        <div class="in-line">
+                            <p><strong>Current Grid Size:</strong><p>
+                            <p id="current-grid">16 x 16</p>
+                        </div>
+                        <div class="in-line">
+                            <p><strong id="new-grid-label"></strong><p>
+                            <p id="new-grid"></p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div id="draw-controls">
-                <div>
+                <div class="tools">
                     <h4>Colors</h4>
-                    <p>Tool Color</p>
-                    <p>Background Color</p>
+                    <div>
+                        <input type="color" name="Tool Color" id="color-tool" value="#000000">
+                        <label for="color-tool">Tool</label>
+                    </div>
+                    <div>
+                        <input type="color" name="Background Color" id="color-background" value="#FFFFFF">
+                        <label for="color-background">Background</label>
+                    </div>
                 </div>
-                <div>
+                <div class="tools">
                     <h4>Tool</h4>
-                    <button type="button">Draw</button>
-                    <button type="button">Erase</button>
-                    <button type="button">Fill</button>
-                    <button type="button">Eyedrop</button>
-                    <button type="button">Clear</button>
+                    <div>
+                        <button type="button">Draw</button>
+                        <button type="button">Erase</button>
+                        <button type="button">Fill</button>
+                        <button type="button">Eyedrop</button>
+                    </div>
+                    <div>
+                        <button type="button">Clear</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    
-    
     <script src="javascript/etchASketch.js"></script>
 </body>
 </html>
