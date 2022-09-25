@@ -1,14 +1,17 @@
 // Get Elements
 const grid = document.querySelector("#grid");  // Grid parent div
 const gridSelector = document.querySelector("#grid-slider");  // Get grid size slider
-const btnResize = document.querySelector("#resize");
-const currentGridPreview = document.querySelector("#current-grid");
-const newGridLabel = document.querySelector("#new-grid-label");
+const btnResize = document.querySelector("#resize");  // Clear and resize button
+const newGridLabel = document.querySelector("#new-grid-label");  // Labels and size preview
 const newGridPreview = document.querySelector("#new-grid");
+const currentGridPreview = document.querySelector("#current-grid");
+const toolColor = document.querySelector("#color-tool");  // Color Pickers
+const bgColor = document.querySelector("#color-background");
 
 // Event Listeners
 gridSelector.addEventListener("input", resizePreview);
 btnResize.addEventListener("click", createGrid);
+toolColor = document
 
 let newSize = 16;  // New Grid size for resize
 
@@ -39,5 +42,7 @@ function createGrid(){
     newGridLabel.textContent = "";  // Hide New Grid Size info
     newGridPreview.textContent = "";
 }
+
+
 
 createGrid();
