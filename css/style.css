@@ -13,6 +13,7 @@ body {
   align-items: center; }
 
 #title {
+  margin: 0;
   font-family: 'PerfectDOS';
   font-size: 400%;
   font-smooth: never;
@@ -62,7 +63,7 @@ SKETCHPAD CONTROLS
   appearance: none;
   flex-grow: 1;
   height: 25px;
-  background: grey;
+  background: lightgrey;
   border: 2px solid black;
   border-radius: 2vw;
   opacity: 0.7;
