@@ -14,9 +14,10 @@ body {
 
 #title {
   font-family: 'PerfectDOS';
-  font-size: 500%;
+  font-size: 400%;
   font-smooth: never;
-  -webkit-font-smoothing: none; }
+  -webkit-font-smoothing: none;
+  text-align: center; }
 
 .center {
   display: flex;
@@ -29,11 +30,11 @@ SKETCHPAD GRID
 #grid {
   height: 800px;
   width: 800px;
-  max-height: 60vmin;
-  max-width: 60vmin;
+  max-height: 70vmin;
+  max-width: 70vmin;
   display: flex;
   flex-direction: column;
-  border: 2px solid black; }
+  border: 1px solid black; }
 
 #grid > div {
   display: flex;
@@ -111,7 +112,7 @@ SKETCHPAD CONTROLS
 .color-picker {
   height: 32px;
   width: 32px;
-  border: none;
+  border: 1px solid black;
   outline: none;
   -webkit-appearance: none;
   border-radius: 50%; }
