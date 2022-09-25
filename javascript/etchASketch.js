@@ -29,10 +29,11 @@ function createGrid(){
     // Create Rows
     for (let i = 1; i <= newSize; i++) {
         const row = document.createElement('div');
-        // Create Columns
+        // Create Columns by creating cells within the rows
         for (let j = 1; j <= newSize; j++) {
-            const column = document.createElement('div');
-            row.appendChild(column);
+            const cell = document.createElement('div');
+            cell.addEventListener("mousemove", checkMouseClicked);
+            row.appendChild(cell);
         }
         grid.appendChild(row);
     }
@@ -40,6 +41,12 @@ function createGrid(){
     currentGridPreview.textContent = newSize + " x " + newSize;  // Update Current Grid Size
     newGridLabel.textContent = "";  // Hide New Grid Size info
     newGridPreview.textContent = "";
+}
+
+function checkMouseClicked(e) {
+    if (e.buttons == 1) {
+        this.style.backgroundColor = "black";
+    }
 }
 
 
