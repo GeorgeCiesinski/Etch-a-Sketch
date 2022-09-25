@@ -5,13 +5,12 @@ const btnResize = document.querySelector("#resize");  // Clear and resize button
 const newGridLabel = document.querySelector("#new-grid-label");  // Labels and size preview
 const newGridPreview = document.querySelector("#new-grid");
 const currentGridPreview = document.querySelector("#current-grid");
-const toolColor = document.querySelector("#color-tool");  // Color Pickers
-const bgColor = document.querySelector("#color-background");
+let toolColor = document.querySelector("#color-tool");  // Color Pickers
+let bgColor = document.querySelector("#color-background");
 
 // Event Listeners
 gridSelector.addEventListener("input", resizePreview);
 btnResize.addEventListener("click", createGrid);
-toolColor = document
 
 let newSize = 16;  // New Grid size for resize
 

@@ -26,15 +26,21 @@ body {
     -webkit-font-smoothing: none;
 }
 
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 /*
-GRID
+SKETCHPAD GRID
 */
 
 #grid {
     height: 800px;
     width: 800px;
-    max-height: 80vw;
-    max-width: 80vw;
+    max-height: 60vmin;
+    max-width: 60vmin;
     display: flex;
     flex-direction: column;
     border: 2px solid black;
@@ -50,6 +56,9 @@ GRID
 #grid > div > div {
     display: flex;
     flex: 1;
+}
+
+.cell-border {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -57,7 +66,7 @@ GRID
 }
 
 /* 
-GRID CONTROLS
+SKETCHPAD CONTROLS
 */
 
 #resize-grid-controls{
@@ -72,6 +81,8 @@ GRID CONTROLS
     flex-grow: 1;
     height: 25px;
     background: grey;
+    border: 2px solid black;
+    border-radius: 2vw;
     opacity: 0.7;
     -webkit-transition: 0.2s;
     transition: 0.2s;
@@ -86,6 +97,7 @@ GRID CONTROLS
     width: 25px;
     height: 25px;
     background: green;
+    border-radius: 2vw;
     cursor: pointer;  // Changes cursor on hover
 }
 #grid-slider::-moz-range-thumb {  // Mozilla Extension pseudo-element
@@ -95,23 +107,55 @@ GRID CONTROLS
     cursor: pointer;  // Changes cursor on hover
 }
 
-.in-line {
-    display: flex;
-    gap: 1vw;
-}
-
+// Previews
 #size-preview {
     display: flex;
     gap: 5vw;
 }
 
+.in-line {
+    display: flex;
+    gap: 1vw;
+}
+
+// Controls
 #draw-controls {
     display: flex;
+    justify-content: space-between;
     gap: 5vw;
 }
 
-// Tools
-.tools {
+
+// Color inputs
+#color-inputs {
     display: flex;
-    flex-direction: column;
+    gap: 2vw;
+}
+
+.color-elements {
+    display: flex;
+    gap: 1vw;
+    align-items: center;
+}
+
+.color-picker {
+    height: 32px;
+    width: 32px;
+    border: none;
+    outline: none;
+    -webkit-appearance: none;
+    border-radius: 50%;
+}
+.color-picker::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+.color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
+
+.tool-button {
+    border: 2px solid black;
+    border-radius: 2vw;
+    margin: 2px;
 }
