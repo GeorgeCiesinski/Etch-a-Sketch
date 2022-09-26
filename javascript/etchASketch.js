@@ -46,7 +46,7 @@ function createGrid(){
             }); 
             cell.addEventListener("mousemove", checkMouseClicked);  // Add mousemove event to cells
             cell.setAttribute("background", true);  // New cells should have background attribute
-            cell.style.backgroundColor = "#FFFFFF";  // Sets white background
+            cell.style.backgroundColor = bgColor;  // Sets white background
             row.appendChild(cell);
         }
         grid.appendChild(row);
