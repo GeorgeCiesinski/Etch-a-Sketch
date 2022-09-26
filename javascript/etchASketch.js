@@ -21,15 +21,13 @@ gridSelector.addEventListener("input", resizePreview);
 btnResize.addEventListener("click", createGrid);
 toolColorEl.addEventListener("input", function() {  // Update toolColor if color selector input occurs
     toolColor = this.value;
-    console.log(toolColor);
 });
 bgColorEl.addEventListener("input", function() {  // Update bgColor if color selector input occurs
     bgColor = this.value;
+    updateBackground(bgColor);
 });
 toolButtons.forEach(el => el.addEventListener("click", changeTool));
 
-// Check if hex
-const isHexColor = hex => typeof hex === 'string' && hex.length === 6 && !isNaN(Number('0x' + hex));
 // Convert RGB to hex
 const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`;
 
@@ -43,15 +41,16 @@ function createGrid(){
         // Create Columns by creating cells within the rows
         for (let j = 1; j <= newSize; j++) {
             const cell = document.createElement('div');
-            cell.addEventListener("click", checkMouseClicked); 
-            cell.addEventListener("mousemove", checkMouseClicked);  // Add onclick event to cells
+            cell.addEventListener("mousedown", function() {  // Add mousedown event when mouse isn't moved
+                useTool(this);
+            }); 
+            cell.addEventListener("mousemove", checkMouseClicked);  // Add mousemove event to cells
             cell.setAttribute("background", true);  // New cells should have background attribute
-            cell.style.backgroundColor = "white";  // Sets white background
+            cell.style.backgroundColor = "#FFFFFF";  // Sets white background
             row.appendChild(cell);
         }
         grid.appendChild(row);
     }
-
     currentGridPreview.textContent = newSize + " x " + newSize;  // Update Current Grid Size
     newGridLabel.textContent = "";  // Hide New Grid Size info
     newGridPreview.textContent = "";
@@ -60,14 +59,19 @@ function createGrid(){
 // Checks if mouse button pressed while mouse moved over element
 function checkMouseClicked(e) {
     if (e.buttons == 1) {
-        if (currentTool == "draw") {
-            drawCell(this);
-        }
-        else if (currentTool == "erase") {
-            eraseCell(this);
-        } else {
-            updateToolColor(this);
-        }
+        useTool(this);
+    }
+}
+
+// Determines which tool is selected and activates it
+function useTool(element) {
+    if (currentTool == "draw") {
+        drawCell(element);
+    }
+    else if (currentTool == "erase") {
+        eraseCell(element);
+    } else {
+        updateToolColor(element);
     }
 }
 
@@ -85,17 +89,15 @@ function eraseCell(element) {
 
 // Eyedropper tool
 function updateToolColor(element) {
-    elColor = element.style.backgroundColor;
+    elColor = rgb2hex(element.style.backgroundColor);
     toolColor = elColor;
     toolColorEl.value = toolColor;
-    // const elementBg = element.style.backgroundColor;
+}
 
-    // if (!isHexColor(elementBg)) {
-    //     elementBg = rgb2hex(elementBg);
-    // }
-    // 
-    // console.log(toolColor);
-    // toolColorEl.value = toolColor;
+// Updates all background cells to new color
+function updateBackground(color) {
+    const backgroundCells = document.querySelectorAll('[background="true"]');
+    backgroundCells.forEach(cell => cell.style.backgroundColor = bgColor);
 }
 
 // Previews new size of grid
