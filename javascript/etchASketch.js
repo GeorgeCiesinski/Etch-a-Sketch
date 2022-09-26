@@ -8,7 +8,6 @@ const currentGridPreview = document.querySelector("#current-grid");
 let toolColorEl = document.querySelector("#color-tool");  // Color Pickers
 let bgColorEl = document.querySelector("#color-background");
 const toolButtons = document.querySelectorAll(".tool-button");  // All tool buttons
-const btnSave = document.querySelector("#save");
 
 // Global variables
 let newSize = 16;  // New Grid size for resize

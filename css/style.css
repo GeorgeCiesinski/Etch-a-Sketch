@@ -143,9 +143,8 @@ SKETCHPAD CONTROLS
 .selected-button {
   background-color: yellow; }
 
-#save {
-  background-color: green;
-  color: white; }
+.tool-button {
+  height: 5vh; }
 
 #resize {
   background-color: red;
