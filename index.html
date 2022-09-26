@@ -13,30 +13,8 @@
     <div class="center">
 
         <!-- GRID -->
-        <div id="grid">
-        </div>
-    
-        <!-- TOOLS -->
-        <div id="grid-tools">
-            <h4>Grid Size</h4>
-            <div id="grid-custom-controls">
-                <div>
-                    <div id="resize-grid-controls">
-                        <input id="grid-slider" type="range" min="1" max="100" value="16">
-                        <button type="button" id="resize" class="button">Clear & Resize</button>
-                    </div>
-                    <div id="size-preview">
-                        <div class="in-line">
-                            <p><strong>Current Grid Size:</strong><p>
-                            <p id="current-grid"></p>
-                        </div>
-                        <div class="in-line">
-                            <p><strong id="new-grid-label"></strong><p>
-                            <p id="new-grid"></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div id="top">
+
             <div id="draw-controls">
                 <div>
                     <h4>Colors</h4>
@@ -53,7 +31,7 @@
                 </div>
                 <div>
                     <h4>Tool</h4>
-                    <div>
+                    <div id="tool-buttons">
                         <button id="draw" class="button tool-button selected-button" type="button">Draw</button>
                         <button id="erase" class="button tool-button" type="button">Eraser</button>
                         <button id="eyedrop" class="button tool-button" type="button">Eyedrop</button>
@@ -61,6 +39,33 @@
                     </div>
                 </div>
             </div>
+
+            <div id="grid">
+            </div>
+
+        </div>
+    
+        <!-- GRID SLIDER -->
+        <div id="grid-tools">
+            <h4>Grid Size</h4>
+            <!-- <div id="grid-custom-controls"> -->
+            <div>
+                <div id="resize-grid-controls">
+                    <input id="grid-slider" type="range" min="1" max="100" value="16">
+                    <button type="button" id="resize" class="button">Clear & Resize</button>
+                </div>
+                <div id="size-preview">
+                    <div class="in-line">
+                        <p><strong>Current Grid Size:</strong><p>
+                        <p id="current-grid"></p>
+                    </div>
+                    <div class="in-line">
+                        <p><strong id="new-grid-label"></strong><p>
+                        <p id="new-grid"></p>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
         </div>
     </div>
 

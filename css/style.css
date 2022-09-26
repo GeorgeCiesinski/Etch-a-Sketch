@@ -25,6 +25,10 @@ body {
   flex-direction: column;
   align-items: center; }
 
+#top {
+  display: flex;
+  gap: 2vw; }
+
 /*
 SKETCHPAD GRID
 */
@@ -35,7 +39,7 @@ SKETCHPAD GRID
   max-width: 70vmin;
   display: flex;
   flex-direction: column;
-  border: 1px solid black; }
+  border: 2px solid black; }
 
 #grid > div {
   display: flex;
@@ -54,6 +58,9 @@ SKETCHPAD GRID
 /* 
 SKETCHPAD CONTROLS
 */
+#grid-tools {
+  width: 100%; }
+
 #resize-grid-controls {
   display: flex;
   gap: 1vw; }
@@ -90,6 +97,7 @@ SKETCHPAD CONTROLS
 
 #size-preview {
   display: flex;
+  justify-content: space-between;
   gap: 5vw; }
 
 .in-line {
@@ -98,11 +106,13 @@ SKETCHPAD CONTROLS
 
 #draw-controls {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
   gap: 5vw; }
 
-#color-inputs {
+#color-inputs, #tool-buttons {
   display: flex;
+  flex-direction: column;
   gap: 2vw; }
 
 .color-elements {
