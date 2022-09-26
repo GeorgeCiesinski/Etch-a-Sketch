@@ -5,25 +5,36 @@ const btnResize = document.querySelector("#resize");  // Clear and resize button
 const newGridLabel = document.querySelector("#new-grid-label");  // Labels and size preview
 const newGridPreview = document.querySelector("#new-grid");
 const currentGridPreview = document.querySelector("#current-grid");
-let toolColor = document.querySelector("#color-tool");  // Color Pickers
-let bgColor = document.querySelector("#color-background");
+let toolColorEl = document.querySelector("#color-tool");  // Color Pickers
+let bgColorEl = document.querySelector("#color-background");
+const toolButtons = document.querySelectorAll(".tool-button");  // All tool buttons
+const btnSave = document.querySelector("#save");
+
+// Global variables
+let newSize = 16;  // New Grid size for resize
+let toolColor = toolColorEl.value;  // Color for main tool
+let bgColor = bgColorEl.value;  // Color for eraser and bg
+let currentTool = "draw";  // "draw", "erase", "eyedrop"
 
 // Event Listeners
 gridSelector.addEventListener("input", resizePreview);
 btnResize.addEventListener("click", createGrid);
+toolColorEl.addEventListener("input", function() {  // Update toolColor if color selector input occurs
+    toolColor = this.value;
+    console.log(toolColor);
+});
+bgColorEl.addEventListener("input", function() {  // Update bgColor if color selector input occurs
+    bgColor = this.value;
+});
+toolButtons.forEach(el => el.addEventListener("click", changeTool));
 
-let newSize = 16;  // New Grid size for resize
+// Check if hex
+const isHexColor = hex => typeof hex === 'string' && hex.length === 6 && !isNaN(Number('0x' + hex));
+// Convert RGB to hex
+const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`;
 
-function resizePreview(value) {
-    newSize = this.value;
-    newGridLabel.textContent = "New Grid Size:";
-    newGridPreview.textContent = newSize + " x " + newSize;
-}
-
+// Creates a new grid
 function createGrid(){
-    console.log("Created new grid");
-    console.log(newSize);
-
     grid.replaceChildren(); // Removes any child nodes
 
     // Create Rows
@@ -32,7 +43,10 @@ function createGrid(){
         // Create Columns by creating cells within the rows
         for (let j = 1; j <= newSize; j++) {
             const cell = document.createElement('div');
-            cell.addEventListener("mousemove", checkMouseClicked);
+            cell.addEventListener("click", checkMouseClicked); 
+            cell.addEventListener("mousemove", checkMouseClicked);  // Add onclick event to cells
+            cell.setAttribute("background", true);  // New cells should have background attribute
+            cell.style.backgroundColor = "white";  // Sets white background
             row.appendChild(cell);
         }
         grid.appendChild(row);
@@ -43,12 +57,65 @@ function createGrid(){
     newGridPreview.textContent = "";
 }
 
+// Checks if mouse button pressed while mouse moved over element
 function checkMouseClicked(e) {
     if (e.buttons == 1) {
-        this.style.backgroundColor = "black";
+        if (currentTool == "draw") {
+            drawCell(this);
+        }
+        else if (currentTool == "erase") {
+            eraseCell(this);
+        } else {
+            updateToolColor(this);
+        }
     }
 }
 
+// Draw tool
+function drawCell(element) {
+    element.setAttribute("background", false);
+    element.style.backgroundColor = toolColor;
+}
 
+//Erase tool
+function eraseCell(element) {
+    element.setAttribute("background", true);
+    element.style.backgroundColor = bgColor;
+}
 
+// Eyedropper tool
+function updateToolColor(element) {
+    elColor = element.style.backgroundColor;
+    toolColor = elColor;
+    toolColorEl.value = toolColor;
+    // const elementBg = element.style.backgroundColor;
+
+    // if (!isHexColor(elementBg)) {
+    //     elementBg = rgb2hex(elementBg);
+    // }
+    // 
+    // console.log(toolColor);
+    // toolColorEl.value = toolColor;
+}
+
+// Previews new size of grid
+function resizePreview(value) {
+    newSize = this.value;
+    newGridLabel.textContent = "New Grid Size:";
+    newGridPreview.textContent = newSize + " x " + newSize;
+}
+
+// Changes current tool
+function changeTool() {
+    currentTool = this.getAttribute("id");
+    toolPreview();
+    console.log(currentTool);
+}
+// Changes button styling for selected tool
+function toolPreview() {
+    toolButtons.forEach(el => el.classList.remove("selected-button"));
+    document.querySelector("#"+currentTool).classList.add("selected-button");
+}
+
+// Initial grid creation
 createGrid();

@@ -125,9 +125,21 @@ SKETCHPAD CONTROLS
   border: none;
   border-radius: 50%; }
 
-.tool-button {
+.button {
   border: 2px solid black;
   border-radius: 2vw;
   margin: 2px; }
+
+.selected-button {
+  border: 4px solid black;
+  font-weight: bold; }
+
+#save {
+  background-color: green;
+  color: white; }
+
+#resize {
+  background-color: red;
+  color: white; }
 
 /*# sourceMappingURL=style.css.map */
