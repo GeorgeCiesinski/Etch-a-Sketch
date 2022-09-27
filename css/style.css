@@ -74,6 +74,7 @@ TOP SECTION
   border-radius: 50%; }
 
 .button {
+  font-size: 100%;
   border: 2px solid var(--font-color);
   color: black;
   background-color: var(--secondary-light);

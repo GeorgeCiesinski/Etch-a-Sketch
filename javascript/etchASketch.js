@@ -30,38 +30,6 @@ toolButtons.forEach(el => el.addEventListener("click", changeTool));
 // Convert RGB to hex
 const rgb2hex = (rgb) => `#${rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/).slice(1).map(n => parseInt(n, 10).toString(16).padStart(2, '0')).join('')}`;
 
-// Creates a new grid
-function createGrid(){
-    grid.replaceChildren(); // Removes any child nodes
-
-    // Create Rows
-    for (let i = 1; i <= newSize; i++) {
-        const row = document.createElement('div');
-        // Create Columns by creating cells within the rows
-        for (let j = 1; j <= newSize; j++) {
-            const cell = document.createElement('div');
-            cell.addEventListener("mousedown", function() {  // Add mousedown event when mouse isn't moved
-                useTool(this);
-            }); 
-            cell.addEventListener("mousemove", checkMouseClicked);  // Add mousemove event to cells
-            cell.setAttribute("background", true);  // New cells should have background attribute
-            cell.style.backgroundColor = bgColor;  // Sets white background
-            row.appendChild(cell);
-        }
-        grid.appendChild(row);
-    }
-    currentGridPreview.textContent = newSize + " x " + newSize;  // Update Current Grid Size
-    newGridLabel.textContent = "";  // Hide New Grid Size info
-    newGridPreview.textContent = "";
-}
-
-// Checks if mouse button pressed while mouse moved over element
-function checkMouseClicked(e) {
-    if (e.buttons == 1) {
-        useTool(this);
-    }
-}
-
 // Determines which tool is selected and activates it
 function useTool(element) {
     if (currentTool == "draw") {
@@ -116,6 +84,38 @@ function changeTool() {
 function toolPreview() {
     toolButtons.forEach(el => el.classList.remove("selected-button"));
     document.querySelector("#"+currentTool).classList.add("selected-button");
+}
+
+// Creates a new grid
+function createGrid(){
+    grid.replaceChildren(); // Removes any child nodes
+
+    // Create Rows
+    for (let i = 1; i <= newSize; i++) {
+        const row = document.createElement('div');
+        // Create Columns by creating cells within the rows
+        for (let j = 1; j <= newSize; j++) {
+            const cell = document.createElement('div');
+            cell.addEventListener("mousedown", function() {  // Add mousedown event when mouse isn't moved
+                useTool(this);
+            }); 
+            cell.addEventListener("mousemove", checkMouseClicked);  // Add mousemove event to cells
+            cell.setAttribute("background", true);  // New cells should have background attribute
+            cell.style.backgroundColor = bgColor;  // Sets white background
+            row.appendChild(cell);
+        }
+        grid.appendChild(row);
+    }
+    currentGridPreview.textContent = newSize + " x " + newSize;  // Update Current Grid Size
+    newGridLabel.textContent = "";  // Hide New Grid Size info
+    newGridPreview.textContent = "";
+}
+
+// Checks if mouse button pressed while mouse moved over element
+function checkMouseClicked(e) {
+    if (e.buttons == 1) {
+        useTool(this);
+    }
 }
 
 // Initial grid creation
