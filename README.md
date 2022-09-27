@@ -1,4 +1,4 @@
-# Etch-a-Sketch
+# PIXEL SKETCHPAD
 Etch-a-sketch like webpage built for The Odin Project. 
 
 ## Features
