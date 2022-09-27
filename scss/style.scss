@@ -89,6 +89,10 @@ TOP SECTION
     border: none;
     border-radius: 50%;
 }
+.color-picker::-moz-color-swatch {
+    border: none;
+    border-radius: 50%;
+}
 
 .button {
     font-size: 100%;
@@ -179,6 +183,7 @@ GRID CONTROLS
     height: 25px;
     background: var(--secondary-dark);
     cursor: pointer;  // Changes cursor on hover
+    border-radius: 2vw;
 }
 
 // Previews
