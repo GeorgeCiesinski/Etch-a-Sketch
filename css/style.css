@@ -4,26 +4,36 @@
   font-weight: 500;
   font-style: normal;
   font-display: swap; }
+:root {
+  --bg-color: #211628;
+  --font-color: #C7D9E9;
+  --secondary-light: #348FC0;
+  --secondary-dark: #181EC1;
+  --tertiary: #D0D1A3;
+  --custom-red: #ca1e1e; }
+
 * {
-  font-family: "Gill Sans", sans-serif; }
+  font-family: 'PerfectDOS', "Gill Sans", sans-serif;
+  color: var(--font-color); }
 
 body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--bg-color); }
+
+.center {
   display: flex;
   flex-direction: column;
   align-items: center; }
 
 #title {
   margin: 0;
-  font-family: 'PerfectDOS';
+  font-family: 'PerfectDOS', "Gill Sans", sans-serif;
   font-size: 400%;
   font-smooth: never;
   -webkit-font-smoothing: none;
   text-align: center; }
-
-.center {
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
 
 #top {
   display: flex;
@@ -70,8 +80,8 @@ SKETCHPAD CONTROLS
   appearance: none;
   flex-grow: 1;
   height: 25px;
-  background: lightgrey;
-  border: 2px solid black;
+  background: var(--secondary-light);
+  border: 2px solid var(--font-color);
   border-radius: 2vw;
   opacity: 0.7;
   -webkit-transition: 0.2s;
@@ -85,14 +95,14 @@ SKETCHPAD CONTROLS
   appearance: none;
   width: 25px;
   height: 25px;
-  background: green;
+  background: var(--secondary-dark);
   border-radius: 2vw;
   cursor: pointer; }
 
 #grid-slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
-  background: green;
+  background: var(--secondary-dark);
   cursor: pointer; }
 
 #size-preview {
@@ -136,18 +146,22 @@ SKETCHPAD CONTROLS
   border-radius: 50%; }
 
 .button {
-  border: 2px solid black;
+  border: 2px solid var(--font-color);
+  color: black;
+  background-color: var(--secondary-light);
   border-radius: 2vw;
   margin: 2px; }
 
 .selected-button {
-  background-color: yellow; }
+  border: 4px solid var(--font-color);
+  color: var(--font-color);
+  background-color: var(--secondary-dark); }
 
 .tool-button {
   height: 5vh; }
 
 #resize {
-  background-color: red;
+  background-color: var(--custom-red);
   color: white; }
 
 /*# sourceMappingURL=style.css.map */
