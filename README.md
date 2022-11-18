@@ -1,6 +1,8 @@
 # PIXEL SKETCHPAD
 Etch-a-sketch like webpage built for The Odin Project. 
 
+![pixel-thumb](https://user-images.githubusercontent.com/7014211/202624146-02975bb2-2706-4811-9e7e-22650174affa.png)
+
 ## Features
 - 1 pixel wide draw tool
 - Color picker for tool and background
